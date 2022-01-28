@@ -1,0 +1,21 @@
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Type</th>
+        <th scope="col">CGST %</th>
+        <th scope="col">SGST %</th>
+        <th scope="col">Flood Cess %</th>
+        <th scope="col">Total Tax %</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let item of taxRates">
+        <td >{{item.product}}</td>
+        <td >{{item.CGST}}</td>
+        <td >{{item.SGST}}</td>
+        <td >{{item.CESS}}</td>
+        <td >{{item.CGST + item.SGST + item.CESS}}</td>
+      </tr>
+     
+    </tbody>
+  </table>

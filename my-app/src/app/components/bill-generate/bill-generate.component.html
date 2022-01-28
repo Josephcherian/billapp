@@ -1,0 +1,24 @@
+<table class="table">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="col">InvoiveNumber</th>
+      <th scope="col">Date</th>
+      <th scope="col">Buyer Address</th>
+      <th scope="col">Bill Amount</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of billDetails">
+      <td >{{item.invoicenum}}</td>
+      <td >{{item.date}}</td>
+      <td >{{item.buyerAddress}}</td>
+      <td >{{item.totalBillAmount}}</td>
+      <td style="display: flex; flex-direction: row; justify-content: space-evenly; align-items: center;">
+        <button type="button" class="btn btn-primary" (click)="save()">Edit</button>
+        <button type="button" class="btn btn-secondary" >Print</button>
+      </td>
+    </tr>
+   
+  </tbody>
+</table>

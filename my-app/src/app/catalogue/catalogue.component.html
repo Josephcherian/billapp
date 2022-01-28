@@ -1,0 +1,80 @@
+<!--div class="catcontent card-container1">
+    <div class="card1 card-small" (click)="addItem()" tabindex="0">
+        
+
+        <span style="color: white">Add Item</span>
+    </div>
+    <div class="card1 card-small"  tabindex="0">
+        
+
+        <span style="color: white">Edit Item</span>
+    </div>
+
+    <div class="card1 card-small"  tabindex="0">
+        
+
+        <span style="color: white">Delete Item</span>
+    </div>
+
+    <div class="card1 card-small"  tabindex="0">
+        
+
+        <span style="color: white">Search Item</span>
+    </div>
+    
+  </!--div-->
+  
+ <div  style="float:left; min-height: 100vh; width:15%;overflow:hidden; border-right: solid;border-right-style:double;border-color: black;">
+
+  <ul class="nav flex-column" >
+ 
+    
+    <li class="nav-item">
+      <a class="active" style="font-weight: bold;font-size: 28px;color: black;width: 15%;">Inventory</a>
+    </li>
+    <li class="nav-item">
+        <a class="nav-link"  (click)="addItem()" style="color: black; cursor: pointer;  " >Add</a>
+      </li>
+
+    <li class="nav-item">
+        <a class="nav-link" (click)="searchItem()" style="color: black; cursor: pointer;">Search</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="active" style="font-weight: bold;font-size: 28px;color: black;width: 15%;">Tax</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" (click)="displayTaxRates()" style="color: black;cursor: pointer;">Tax Rates</a>
+      </li>
+  </ul>
+  
+</div>
+  <div class="card-deck imgbg1" style="float:none; width:80%; overflow:hidden; padding-left: 64px;padding-top: 60px;box-sizing: unset;">
+    <div class="card text-white bg-info mb-5 shadow p-3 mb-5 bg-white rounded" style="max-width: 18rem; height:400px; cursor: pointer;" [routerLink] = "['/viewinventory','tyres']">
+      <img src="assets/appolo_tyre.jpg" class="card-img-top" style="height: 150px;">
+      <div class="card-body" style="background-color: #8D4E85;padding-top: 72px;padding-left:36px">
+        <h5 class="card-title">Tyres and Accessories</h5>
+        <p class="card-text">Check the inventory of Tyres/Tubes/Flap</p>
+        
+      </div>
+    </div>
+    <div class="card text-white bg-info mb-5 shadow p-3 mb-5 bg-white rounded" style="max-width: 18rem; cursor: pointer;height:400px;" [routerLink] = "['/viewinventory','parts']">
+        <img src="assets/leyparts.jpg" class="card-img-top" style="height: 150px;">
+      <div class="card-body" style="background-color: #0095B7;padding-top: 72px;padding-left:36px;height: 150px;">
+        <h5 class="card-title">Parts</h5>
+        <p class="card-text" style="height: 200px; text-align: justify;">Check the inventory of Parts</p>
+        
+      </div>
+    </div>
+    <div class="card text-white bg-info mb-5 shadow p-3 mb-5 bg-white rounded" style="max-width: 18rem; cursor: pointer;height:400px;" [routerLink] = "['/viewinventory','lubricants']">
+        <img src="assets/castrol.png" class="card-img-top" style="height: 150px;">
+      <div class="card-body" style="background-color: #1AB385;padding-top: 72px;padding-left:36px">
+        <h5 class="card-title">Lubricants</h5>
+        <p class="card-text">Check the inventory of Lubricants/Oil</p>
+        
+      </div>
+    </div>
+  </div>
+
+
+ 

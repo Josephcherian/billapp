@@ -1,0 +1,152 @@
+<div class="content1 imgbill" role="main">
+  
+    <div class="card-container1">
+      <div class="card1" style="opacity: .7;" data-toggle="modal" data-target="#exampleModal">
+        <!--img src="assets/appolo_1.png" alt="Catalogue" style="width:60%"-->
+        <div class="container" style="opacity: 1;" >
+          <h4 style="color: white;">New</h4>
+          
+        </div>
+      </div>
+      <div class="card1" style="opacity: .7;" [routerLink]="['/billing/history']">
+        <!--img src="assets/appolo_1.png" alt="Billing" style="width:60%"-->
+        <div class="container">
+          <h4 style="color: white;">Bill History</h4>
+        </div>
+      </div>
+    </div>
+        
+    
+</div>
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable modal-xl">
+      <div class="modal-content">
+        <div class="modal-header" style="text-align: center;">
+          <h5 class="modal-title" id="exampleModalLabel" style="font-size: -webkit-xxx-large;">Tax Invoice</h5>
+          <button type="button" class="close" data-dismiss="modal" (click)="close()" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="griditembill"> 
+                <div class="item4" style="border: 1px solid;text-align: left;padding-left: 2px;"> 
+                    <div  style="color: black;font:caption;font-weight: bold;">Denny Traders</div>
+                    <div  style="color: black;-webkit-text-stroke-width: thin;"> GSTIN: 123456789</div>
+                    <div  style="color: black;-webkit-text-stroke-width: thin;"> Pallikkara</div>
+                    <div  style="color: black;-webkit-text-stroke-width: thin;">Kizhakkambalam</div>
+                    <i class="fa fa-phone" style="font-size:14px;color:black">  0484-2680806</i>
+                </div>
+                <div class="item5" style="border: 1px solid; text-align: center;-webkit-text-stroke-width: thin;"> 
+                    <div style="font-weight: bold;">Invoice Number</div>
+                    <div> {{billInvoiceNumber}} </div>
+                </div>
+                <div class="item6" style="border: 1px solid;text-align: center;"> 
+                    <label for="validationTextarea" style="color: black;font:caption;font-weight: bold;">Buyer</label>
+                    <textarea class="form-control" id="validationTextarea" placeholder="Billing Addresss" required [(ngModel)]="this.buyerAddress"></textarea>                  
+                </div>
+                <div class="item7" style="border: 1px solid;text-align: center;-webkit-text-stroke-width: thin;font-weight: bold;"> Date: 
+                    <input type="date" id="birthday" name="birthday" (change)="onChangeDate($event)">
+                </div>
+            </div>
+            <table class="table table-bordered" style="border: 2px solid;border-collapse: separate;">
+                <thead>
+                  <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Product Name</th>
+                    <th scope="col">Quantity</th>
+                    <th scope="col">MRP</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">SGST Rate</th>
+                    <th scope="col">SGST Amount</th>
+                    <th scope="col">CGST Rate</th>
+                    <th scope="col">CGST Amount</th>
+                    <th scope="col">Flood Cess Rate</th>
+                    <th scope="col">Flood Cess Amount</th>
+                    <th scope="col">Net Amount</th>          
+                  </tr>
+                </thead>
+                <tbody>
+                  <!--tr>
+                    <th scope="row">1</th>
+                    <td-->
+                        <!--input list="products" name="product" id="product" style="border: unset;">
+                        <datalist id="products" (change)="onChangeProduct($event)">
+                            <option *ngFor="let c of itemList" [value]="c.productDescription">
+                        </datalist-->
+                        <!--select name="cars" id="cars" (change)="onChangeProduct($event)" style="border: unset;">
+                            <option *ngFor="let c of itemList" [value]="c.productDescription">
+                                {{c.productDescription}}
+                            </option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="number" class="form-control" id="qty" name="quantity" style="border: unset;">
+                    </td>
+                    <td>{{selectedItem.totalAmount}}</td>
+                  </tr-->
+                  
+                <tr *ngFor="let item of billitems;index as i">
+                    <td >{{i + 1}}</td>
+                    <td>
+                        <select name="cars" id="cars" (change)="onChangeProduct($event,i)" style="border: unset;">
+                            <option value="none" selected disabled hidden> 
+                                Select an Option 
+                            </option>
+                            <option *ngFor="let c of itemList" [value]="c.productDescription">
+                                {{c.productDescription}}
+                            </option>
+                        </select>
+                    </td>
+                    <td>
+                        <input type="number" min="1" class="form-control" id="qty" name="quantity" (change)="onChangeQuantity($event,i)"  style="border: unset;">
+                    </td>
+                    <td>
+                      {{item.rate}}
+                    </td>
+                    <td>
+                      <input type="text" class="form-control" id="taxableamount" name="taxableamount" (change)="onChangeTaxableAmount($event,i)" style="border: unset;">
+                    </td>
+                    <td>
+                      {{item.sgst}}
+                    </td>
+                    <td>
+                      {{item.sgstAmount}}
+                    </td>
+                    <td>
+                      {{item.cgst}}
+                    </td>
+                    <td>
+                      {{item.cgstAmount}}
+                    </td>
+                    <td>
+                      {{item.floodcess}}
+                    </td>
+                    <td>
+                      {{item.floodCessAmount}}
+                    </td>
+                    <td>
+                      {{item.netAmount}}
+                    </td>
+
+                </tr>
+                  
+                </tbody>
+            </table>
+            <div class="btn-group btn-group-sm" role="group" aria-label="Basic example">
+                <button type="button" class="btn btn-primary" (click)="addBillItem()">Add Item</button>
+                <!--button type="button" class="btn btn-secondary">Remove Item</button-->
+            </div>
+            <div class="item5" style="text-align: right;-webkit-text-stroke-width: thin;"> 
+              <div style="font-weight: bold;">Total Amount</div>
+              <a> {{billTotalAmount}} </a>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-primary" (click)="save()">Save</button>
+          <button type="button" class="btn btn-secondary" (click) = "print()">Print</button>
+          
+        </div>
+      </div>
+    </div>
+  </div>

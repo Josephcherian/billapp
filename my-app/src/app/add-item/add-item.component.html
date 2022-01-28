@@ -1,0 +1,76 @@
+<br>
+<h4 style="text-align: center;">Add Item </h4>
+<form style="border:1px solid black; padding: 4px;margin: 4px; height: 300px; text-align: center; font-weight: bold;">
+   
+    <br>
+    <div class="form-row" >
+      <div class="form-group col-md-5">
+        <label for="inputEmail4">Product Description</label>
+        <input type="text" class="form-control" id="inputEmail4" [(ngModel)]="item.productDescription" name="proddesc" required="required">
+      </div>
+      <div class="form-group col-md-2">
+        <label for="exampleFormControlSelect1">Product Type</label>
+        <select class="form-control" id="exampleFormControlSelect1" (change)="onChangeProduct($event.target.value)">
+          <option>Tyre/Tube/Flap</option>
+          <option>Tubeless Tyre</option>
+          <option>Tyre</option>
+          <option>Tubeless Radial Tyre</option>
+          <option>Parts</option>
+          <option>Lubricants</option>
+          <option>Tube</option>
+          <option>Flap</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="exampleFormControlSelect2">Manufacturer</label>
+        <select class="form-control" id="exampleFormControlSelect2" (change)="onChangeManufacturer($event.target.value)">
+          <option>Apollo</option>
+          <option>Ceat</option>
+          <option>Ashok Leyland</option>
+          <option>Castrol</option>
+          <option>Total</option>
+          <option>SKF</option>
+        </select>
+      </div>
+      <div class="form-group col-md-2">
+        <label for="qty">Quantity</label>
+        <input type="number" class="form-control" id="qty" [(ngModel)]="item.quantity" name="quantity">
+      </div>
+    </div>
+    <br>
+
+    <div class="form-row" >
+        <div class="form-group col-md-3" *ngIf="this.item.productType ==='TTF'">
+            <label for="InvoiceAmt">Tyre Invoice Amount</label>
+            <input type="text" class="form-control" id="InvoiceAmt" [(ngModel)]="item.tyreAmount" name="tyreAmount">
+        </div>
+        <div class="form-group col-md-3" *ngIf="this.item.productType ==='TTF'">
+            <label for="InvoiceAmt1">Tube Invoice Amount</label>
+            <input type="text" class="form-control" id="InvoiceAmt1" [(ngModel)]="item.tubeAmount" name="tubeAmount">
+        </div>
+        <div class="form-group col-md-3" *ngIf="this.item.productType ==='TTF'">
+            <label for="InvoiceAmt2">Flap Invoice Amount</label>
+            <input type="text" class="form-control" id="InvoiceAmt2" [(ngModel)]="item.flapAmount" name="flapAmount">
+        </div>
+        <div class="form-group col-md-3" *ngIf="this.item.productType ==='TTF' else elseBlock">
+            <label for="InvoiceAmt3"> Total Invoice Amount</label>
+            <input type="text" class="form-control" id="InvoiceAmt3" [(ngModel)]="item.totalAmount" name="totalAmount">
+        </div>
+        <ng-template #elseBlock>
+            <div class="form-group col-md-2 offset-md-5">
+                <label for="InvoiceAmt4"> Invoice Amount</label>
+                <input type="text" class="form-control" id="InvoiceAmt4" [(ngModel)]="item.totalAmount" name="totalAmount">
+            </div> 
+        </ng-template>
+    </div>
+    
+
+    
+
+    <button type="submit" class="btn btn-primary" style="width: 100px; margin: 8px;" (click)="add()">Add</button>
+    <a></a>
+    <button type="reset" class="btn btn-primary" style="width: 100px;" (click)="cancel()">Reset</button>
+
+    </form> 
+
+    

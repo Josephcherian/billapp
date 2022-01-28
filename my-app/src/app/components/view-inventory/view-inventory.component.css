@@ -1,0 +1,68 @@
+.item1 { grid-area: header; background-color: white;}
+.item2 { grid-area: menu; background-color:white;}
+.item3 { grid-area: main; background-color: white;}
+
+
+.grid-container {
+display: grid;
+grid-template-columns: 15% auto;
+grid-template-rows: 50px auto;
+grid-template-areas:
+'menu header '
+'menu main '; 
+background-color: white;
+padding: 1px;
+width: 100vw;
+height: 100vh;}
+  
+.grid-container > div {
+text-align: center;
+padding: 4px 0;
+font-size: 16px;
+font-weight: bold;}
+
+.invcontentnew {
+display: flex;
+padding: 0 4px;
+flex-direction: row;
+flex-wrap: wrap;
+}
+
+.invchild {
+flex: 1 0 21%; /* explanation below */
+margin: 10px;}
+
+  
+.card:hover {
+transform: translateY(-3px);
+box-shadow: 0 4px 17px rgba(black, 0.35);
+}
+
+.griditem-container {
+display: grid;
+grid-template-columns: 20% auto;
+grid-template-rows: 300px auto;
+grid-template-areas:
+'itemcard details '
+'blank details '; 
+background-color: white;
+padding: 1px;
+width: 1000px;
+height: 200px;}
+  .item4 { grid-area: itemcard; border: unset; }
+  .item5 { grid-area: details;}
+  .item6 { grid-area: blank;}
+  
+.imgbg3 {
+background-image: url("/assets/bg6.jpg");
+background-repeat: repeat;
+background-size: cover;
+}
+
+
+.imgbg2 {background-image: url("/assets/bg6.jpeg"); 
+background-position:left;
+background-repeat: no-repeat;
+background-size: cover;
+height: 100vmin;
+}

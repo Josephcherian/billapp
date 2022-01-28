@@ -1,0 +1,67 @@
+<div class="grid-container" *ngIf="showItemView else elseBlock">
+    <div class="item1 shadow" >Showing results for {{item}}</div>
+    <div class="item2 shadow">Menu</div>
+    <div class="item3 shadow invcontentnew" >
+        <div *ngFor="let item of itemList">
+            <div class="card text-white bg-info shadow p-1 bg-white rounded invchild" style="max-width: 18rem; height:300px; cursor: pointer;" (click)="viewItem(item)">
+                <img src="{{getImageUrl(item.productType)}}" class="card-img-top" style="height: 100px;">
+                <div class="card-body" style="background-color: #C8C8CD; color:black">
+                  <h5 class="card-title">Product Name: {{item.productDescription}}</h5>
+                  <p class="card-text">Stock: {{item.quantity}}</p>
+                  <p class="card-text">Price: {{item.totalAmount}}</p>
+                </div>
+            </div>
+        </div>
+    </div>   
+</div>
+<ng-template #elseBlock>
+    
+    <div class="griditem-container" style="margin-left: 170px; margin-top: 0px;">
+        <div class="card item4 imgbg3" style="max-width: 18rem; cursor: pointer; padding: 4px; border-radius:unset" >
+            <img src="{{getImageUrl(currentItem.productType)}}" class="card-img-top" style="height: 100px;">
+            <div class="card-body" style="background-color: #C8C8CD; color:black">
+              <h5 class="card-title">Product Name: {{currentItem.productDescription}}</h5>
+              <p class="card-text">Stock: {{currentItem.quantity}}</p>
+              <p class="card-text">Price: {{currentItem.totalAmount}}</p>
+            </div>
+        </div>
+        <div class="item5 imgbg3">
+            <form>
+                <div class="form-group">
+                    <div class="form-group col-md-3">
+                        <label for="qty" style="color: rgb(192, 26, 26);">Quantity</label>
+                        <input type="number" class="form-control" id="qty" [(ngModel)]="currentItem.quantity" name="quantity">
+                    </div>
+                </div>
+                <div class="form-group col-md-3" *ngIf="this.currentItem.productType ==='TTF'">
+                    <label for="InvoiceAmt" style="color: rgb(192, 26, 26);">Tyre Invoice Amount</label>
+                    <input type="text" class="form-control" id="InvoiceAmt" [(ngModel)]="currentItem.tyreAmount" name="tyreAmount">
+                </div>
+                <div class="form-group col-md-3" *ngIf="this.currentItem.productType ==='TTF'">
+                    <label for="InvoiceAmt1" style="color: rgb(192, 26, 26);">Tube Invoice Amount</label>
+                    <input type="text" class="form-control" id="InvoiceAmt1" [(ngModel)]="currentItem.tubeAmount" name="tubeAmount">
+                </div>
+                <div class="form-group col-md-3" *ngIf="this.currentItem.productType ==='TTF'">
+                    <label for="InvoiceAmt2" style="color: rgb(192, 26, 26);">Flap Invoice Amount</label>
+                    <input type="text" class="form-control" id="InvoiceAmt2" [(ngModel)]="currentItem.flapAmount" name="flapAmount">
+                </div>
+                <div class="form-group col-md-3" *ngIf="this.currentItem.productType ==='TTF' else elseBlock">
+                    <label for="InvoiceAmt3" style="color: rgb(192, 26, 26);"> Total Invoice Amount</label>
+                    <input type="text" class="form-control" id="InvoiceAmt3" [(ngModel)]="currentItem.totalAmount" name="totalAmount">
+                </div>
+                <ng-template #elseBlock>
+                    <div class="form-group col-md-3">
+                        <label for="InvoiceAmt4" style="color: rgb(192, 26, 26);"> Invoice Amount</label>
+                        <input type="text" class="form-control" id="InvoiceAmt4" [(ngModel)]="currentItem.totalAmount" name="totalAmount">
+                    </div> 
+                </ng-template>
+                <button type="submit" class="btn btn-primary" style= "margin-left: 15px;margin-bottom: 10px;" (click)="updateItem()">Modify</button>
+                <button type="submit" class="btn btn-primary" style= "margin-left: 10px;margin-bottom: 10px;" (click)="deleteItem()">Delete</button>
+            </form>
+        </div>
+        <div class="item6 imgbg3" style="height: 176px;">
+            
+        </div>      
+    </div>
+
+</ng-template> 

@@ -1,0 +1,14 @@
+.griditembill {
+    display: grid;
+    grid-template-columns: 70% auto;
+    grid-template-rows: 115px 130px;
+    grid-template-areas:
+          'sellerinfo invoiceno '
+          'retailerinfo date '; 
+    background-color: white;
+    padding: 1px;}
+    
+      .item4 { grid-area: sellerinfo;}
+      .item5 { grid-area: invoiceno;}
+      .item6 { grid-area: retailerinfo;}
+      .item7 { grid-area: date;}

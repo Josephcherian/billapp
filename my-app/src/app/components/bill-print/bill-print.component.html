@@ -1,0 +1,58 @@
+<div class="griditembill"> 
+    <div class="item4" style="border: 1px solid;text-align: left;padding-left: 2px;"> 
+        <div  style="color: black;font:caption;font-weight: bold;">Denny Traders</div>
+        <div  style="color: black;-webkit-text-stroke-width: thin;"> GSTIN: 123456789</div>
+        <div  style="color: black;-webkit-text-stroke-width: thin;"> Pallikkara</div>
+        <div  style="color: black;-webkit-text-stroke-width: thin;">Kizhakkambalam</div>
+        <i class="fa fa-phone" style="font-size:14px;color:black">  0484-2680806</i>
+    </div>
+    <div class="item5" style="border: 1px solid; text-align: center;-webkit-text-stroke-width: thin;"> 
+        <div style="font-weight: bold;">Invoice Number</div>
+        <div> {{this.billNumber}} </div>
+    </div>
+    <div class="item6" style="border: 1px solid;text-align: center;"> 
+    <div> {{this.billDetail.buyerAddress}}</div>
+    </div>
+    <div class="item7" style="border: 1px solid;text-align: center;-webkit-text-stroke-width: thin;font-weight: bold;"> Date: 
+        <div> {{this.billDetail.date}}</div>
+    </div>
+</div>
+<table class="table table-bordered" style="border: 2px solid;border-collapse: separate;">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Product Name</th>
+        <th scope="col">Amount</th>
+        <th scope="col">Quantity</th>  
+        <th scope="col">SGST Rate</th>
+        <th scope="col">SGST Amount</th>
+        <th scope="col">CGST Rate</th>
+        <th scope="col">CGST Amount</th>
+        <th scope="col">Flood Cess Rate</th>
+        <th scope="col">Flood Cess Amount</th>
+        <th scope="col">Net Amount</th>          
+      </tr>
+    </thead>
+    <tbody>
+     
+    <tr *ngFor="let item of this.billItems">
+        <td >{{item.id + 1}}</td>
+        <td> {{item.productDescription}}</td>
+        <td> {{item.taxableAmount}}</td>
+        <td> {{item.quantity}} </td>
+        <td> {{item.sgst}} </td>
+        <td> {{item.sgstAmount}}</td>
+        <td> {{item.cgst}} </td>
+        <td> {{item.cgstAmount}} </td>
+        <td> {{item.floodcess}}  </td>
+        <td> {{item.floodCessAmount}} </td>
+        <td> {{item.netAmount}} </td>
+    </tr>
+      
+    </tbody>
+</table>
+
+<div class="item5" style="text-align: right;-webkit-text-stroke-width: thin;"> 
+    <div style="font-weight: bold;">Total Amount</div>
+    <a> {{this.billDetail.totalBillAmount}} </a>
+</div>

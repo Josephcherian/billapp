@@ -1,0 +1,16 @@
+.invcontent {
+display: flex;
+padding: 0 4px;
+/*max-width: 960px;*/
+flex-direction: row;
+flex-wrap: wrap;
+/*justify-content: space-evenly;*/
+/*align-items: center;*/
+/*background-color: #8B8680;*/
+align-content: space-between;
+}
+
+  .invchild {
+flex: 1 0 21%; /* explanation below */
+margin: 10px;
+}

@@ -1,0 +1,25 @@
+.catcontent {
+display: flex;
+margin: 32px auto;
+padding: 0 4px;
+/*max-width: 960px;*/
+flex-direction: row;
+}
+
+  .card-deck .card:hover {
+transform: translateY(-3px);
+box-shadow: 0 4px 17px rgba(black, 0.35);
+}
+
+  .imgbg1 {
+/*background-image: url("/assets/bg3.jpeg");*/
+height:500px;
+width: 90%;
+background-position:left;
+background-repeat: no-repeat;
+background-size: cover;
+}
+
+  .imgbg { background-color: #E30B5C;
+
+}
